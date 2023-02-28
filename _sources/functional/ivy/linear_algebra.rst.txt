@@ -14,7 +14,6 @@ Linear algebra
    :caption: Linear algebra
 
    linear_algebra/cholesky.rst
-   linear_algebra/cov.rst
    linear_algebra/cross.rst
    linear_algebra/det.rst
    linear_algebra/diagonal.rst
