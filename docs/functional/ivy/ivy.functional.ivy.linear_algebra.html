@@ -331,6 +331,7 @@ document.write(`
 
 
 
+
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ivy.functional.ivy.losses.html">Losses</a></li>
@@ -619,6 +620,137 @@ instances in place of any of the arguments.</p>
 <span class="go">           [ 0.,  1.]])</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ivy.functional.ivy.linear_algebra.cov">
+<span class="sig-prename descclassname"><span class="pre">ivy.</span></span><span class="sig-name descname"><span class="pre">cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rowVar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ddof</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fweights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aweights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/ivy/functional/ivy/linear_algebra.html#cov"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.cov" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the covariance of matrix x1, or variables x1 and x2.
+:type x1: <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="../../data_classes/ivy.data_classes.array.html#ivy.data_classes.array.array.Array" title="ivy.data_classes.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]
+:param x1: a 1D or 2D input array, with a numeric data type.
+:type x2: <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="../../data_classes/ivy.data_classes.array.html#ivy.data_classes.array.array.Array" title="ivy.data_classes.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]]
+:param x2: optional second 1D or 2D input array, with a numeric data type. (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p>
+<blockquote>
+<div><p>Must have the same shape as <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rowVar</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – optional variable where each row of input is interpreted as a variable (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)
+(default = True). If set to False, each column is instead interpreted
+as a variable.</p></li>
+<li><p><strong>bias</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – optional variable for normalizing input (default = False) by (N - 1) where (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>)
+N is the number of given observations. If set to True, then normalization
+is instead by N. Can be overridden by keyword <code class="docutils literal notranslate"><span class="pre">ddof</span></code>.</p></li>
+<li><p><strong>ddof</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – optional variable to override <code class="docutils literal notranslate"><span class="pre">bias</span></code> (default = None). ddof=1 will return (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
+the unbiased estimate, even with fweights and aweights given. ddof=0 will
+return the simple average.</p></li>
+<li><p><strong>fweights</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="../../data_classes/ivy.data_classes.array.html#ivy.data_classes.array.array.Array" title="ivy.data_classes.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>]) – optional 1D array of integer frequency weights; the number of times each (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
+observation vector should be repeated.</p></li>
+<li><p><strong>aweights</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="../../data_classes/ivy.data_classes.array.html#ivy.data_classes.array.array.Array" title="ivy.data_classes.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>]) – optional 1D array of observation vector weights. These relative weights are (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
+typically large for observations considered “important” and smaller for
+observations considered less “important”. If ddof=0 is specified, the array
+of weights can be used to assign probabilities to observation vectors.</p></li>
+<li><p><strong>dtype</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dtype</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeDtype</span></code>]]) – optional variable to set data-type of the result. By default, data-type (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)
+will have at least <code class="docutils literal notranslate"><span class="pre">numpy.float64</span></code> precision.</p></li>
+<li><p><strong>out</strong> – optional output array, for writing the result to. It must have a shape that
+the inputs broadcast to.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../../data_classes/ivy.data_classes.array.html#ivy.data_classes.array.array.Array" title="ivy.data_classes.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><ul class="simple">
+<li><p><em>ret</em> – an array containing the covariance matrix of an input matrix, or the
+covariance matrix of two variables. The returned array must have a
+floating-point data type determined by Type Promotion Rules and must be
+a square matrix of shape (N, N), where N is the number of variables in the
+input(s).</p></li>
+<li><p>This function conforms to the <a href="#id1"><span class="problematic" id="id2">`</span></a>Array API Standard</p></li>
+<li><p><strong>&lt;https</strong> (//data-apis.org/array-api/latest/&gt;`_. This docstring is an extension of the)</p></li>
+<li><p><strong>`docstring &lt;https</strong> (//data-apis.org/array-api/latest/extensions/generated/signatures.linalg.cov.html&gt;`_ # noqa)</p></li>
+<li><p><em>in the standard.</em></p></li>
+<li><p><em>Both the description and the type hints above assumes an array input for simplicity,</em></p></li>
+<li><p>but this function is <em>nestable</em>, and therefore also accepts <code class="xref py py-class docutils literal notranslate"><span class="pre">ivy.Container</span></code></p></li>
+<li><p><em>instances in place of any of the arguments.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>With <code class="xref py py-class docutils literal notranslate"><span class="pre">ivy.Array</span></code> input:
+&gt;&gt;&gt; x = ivy.array([[1,2,3],
+…                [4,5,6]])
+&gt;&gt;&gt; y = x.cov()
+&gt;&gt;&gt; print(y)
+ivy.array([[ 1.,  1.  ],
+…        [ 1.,  1.  ]]
+With <code class="xref py py-class docutils literal notranslate"><span class="pre">ivy.Container</span></code> inputs:
+&gt;&gt;&gt; x = ivy.Container(a=ivy.array([1., 2., 3.]), b=ivy.array([1., 2., 3.]))
+&gt;&gt;&gt; y = ivy.Container(a=ivy.array([3., 2., 1.]), b=ivy.array([3., 2., 1.]))
+&gt;&gt;&gt; z = ivy.Container.static_cov(x, y)
+&gt;&gt;&gt; print(z)
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>a: ivy.array([ 1., -1., -1., -1.]</dt><dd><p>[ 1.,  1., -1., -1.]),</p>
+</dd>
+<dt>b: ivy.array([-1., -1.,  1.,  1.]</dt><dd><p>[-1.,  1.,  1.,  1.])</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>}
+With a combination of <code class="xref py py-class docutils literal notranslate"><span class="pre">ivy.Array</span></code> and <code class="xref py py-class docutils literal notranslate"><span class="pre">ivy.Container</span></code> inputs:
+&gt;&gt;&gt; x = ivy.array([1., 2., 3.])
+&gt;&gt;&gt; y = ivy.Container(a=ivy.array([3. ,2. ,1.]), b=ivy.array([-1., -2., -3.]))
+&gt;&gt;&gt; z = ivy.cov(x, y)
+&gt;&gt;&gt; print(z)
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>a: ivy.array([ 1., -1.]</dt><dd><p>[-1.,  1.]),</p>
+</dd>
+<dt>b: ivy.array([ 1., -1.]</dt><dd><p>[-1.,  1.])</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>}
+With <code class="xref py py-class docutils literal notranslate"><span class="pre">ivy.Array</span></code> input and rowVar flag set to False (True by default):
+&gt;&gt;&gt; x = ivy.array([[1,2,3],
+…                [4,5,6]])
+&gt;&gt;&gt; y = x.cov(rowVar=False)
+&gt;&gt;&gt; print(y)
+ivy.array([[ 4.5,  4.5, 4.5 ],
+…        [ 4.5,  4.5, 4.5 ],
+…        [ 4.5,  4.5, 4.5 ]])
+With <code class="xref py py-class docutils literal notranslate"><span class="pre">ivy.Array</span></code> input and bias flag set to True (False by default):
+&gt;&gt;&gt; x = ivy.array([[1,2,3],
+…                [4,5,6]])
+&gt;&gt;&gt; y = x.cov(bias=True)
+&gt;&gt;&gt; print(y)
+ivy.array([[ 0.6667,  0.6667  ],
+…        [ 0.6667,  0.6667  ]]
+With <code class="xref py py-class docutils literal notranslate"><span class="pre">ivy.Array</span></code> input with both fweights and aweights given:
+&gt;&gt;&gt; x = ivy.array([[1,2,3],
+…                [4,5,6]])
+&gt;&gt;&gt; fw = ivy.array([1,2,3])
+&gt;&gt;&gt; aw = ivy.array([ 1.2, 2.3, 3.4 ])
+&gt;&gt;&gt; y = x.cov(fweights=fw, aweights=aw)
+&gt;&gt;&gt; print(y)
+ivy.array([[ 0.48447205,  0.48447205  ],
+…        [ 0.48447205,  0.48447205  ]]
+With <code class="xref py py-class docutils literal notranslate"><span class="pre">ivy.Array</span></code> input with both fweights and aweights given,
+and rowVar set to False:
+&gt;&gt;&gt; x = ivy.array([[1,2,3],
+…                [4,5,6]])
+&gt;&gt;&gt; fw = ivy.array([1,3])
+&gt;&gt;&gt; aw = ivy.array([ 1.5, 4 ])
+&gt;&gt;&gt; y = x.cov(fweights=fw, aweights=aw, rowVar=False)
+&gt;&gt;&gt; print(y)
+ivy.array([[ 1.22727273,  1.22727273, 1.22727273 ],
+…        [ 1.22727273,  1.22727273, 1.22727273 ],
+…        [ 1.22727273,  1.22727273, 1.22727273 ]])</p>
 </dd></dl>
 
 <dl class="py function">
@@ -1279,7 +1411,7 @@ instances in place of any of the arguments.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>A</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="../../data_classes/ivy.data_classes.array.html#ivy.data_classes.array.array.Array" title="ivy.data_classes.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]) – tensor of shape (<a href="#id17"><span class="problematic" id="id18">*</span></a>, m, n) where * is zero or more batch dimensions.</p></li>
+<li><p><strong>A</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="../../data_classes/ivy.data_classes.array.html#ivy.data_classes.array.array.Array" title="ivy.data_classes.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]) – tensor of shape (<a href="#id19"><span class="problematic" id="id20">*</span></a>, m, n) where * is zero or more batch dimensions.</p></li>
 <li><p><strong>pivot</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Whether to compute the LU decomposition with partial pivoting, or the regular LU (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)
 decomposition. pivot = False not supported on CPU. Default: True.</p></li>
 <li><p><strong>out</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="../../data_classes/ivy.data_classes.array.html#ivy.data_classes.array.array.Array" title="ivy.data_classes.array.array.Array"><code class="xref py py-class docutils literal notranslate"><span class="pre">Array</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">NativeArray</span></code>]]) – tuple of two tensors to write the output to. Ignored if None. Default: None. (default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
@@ -2017,7 +2149,7 @@ Each returned array must have shape <code class="docutils literal notranslate"><
 </pre></div>
 </div>
 </li>
-<li><p>This function conforms to the <a href="#id35"><span class="problematic" id="id36">`</span></a>Array API Standard</p></li>
+<li><p>This function conforms to the <a href="#id37"><span class="problematic" id="id38">`</span></a>Array API Standard</p></li>
 <li><p><strong>&lt;https</strong> (//data-apis.org/array-api/latest/&gt;`_. This docstring is an extension of the)</p></li>
 <li><p><strong>`docstring &lt;https</strong> (//data-apis.org/array-api/latest/extensions/generated/        signatures.linalg.slogdet.html&gt;`_ # noqa)</p></li>
 <li><p><em>in the standard.</em></p></li>
@@ -2752,7 +2884,7 @@ instances in place of any of the arguments.</p>
 <dt class="sig sig-object py" id="ivy.functional.ivy.linear_algebra.vector_to_skew_symmetric_matrix">
 <span class="sig-prename descclassname"><span class="pre">ivy.</span></span><span class="sig-name descname"><span class="pre">vector_to_skew_symmetric_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/ivy/functional/ivy/linear_algebra.html#vector_to_skew_symmetric_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ivy.functional.ivy.linear_algebra.vector_to_skew_symmetric_matrix" title="Permalink to this definition">#</a></dt>
 <dd><dl class="simple">
-<dt>Given vector, return the associated <a href="#id49"><span class="problematic" id="id50">`</span></a>Skew-symmetric matrix</dt><dd><p>&lt;<a class="reference external" href="https://en.wikipedia.org/wiki/Skew-symmetric_matrix#Cross_product/">https://en.wikipedia.org/wiki/Skew-symmetric_matrix#Cross_product/</a>&gt;`_.</p>
+<dt>Given vector, return the associated <a href="#id51"><span class="problematic" id="id52">`</span></a>Skew-symmetric matrix</dt><dd><p>&lt;<a class="reference external" href="https://en.wikipedia.org/wiki/Skew-symmetric_matrix#Cross_product/">https://en.wikipedia.org/wiki/Skew-symmetric_matrix#Cross_product/</a>&gt;`_.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
@@ -2826,6 +2958,7 @@ instances in place of any of the arguments.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivy.functional.ivy.linear_algebra.cholesky"><code class="docutils literal notranslate"><span class="pre">cholesky()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivy.functional.ivy.linear_algebra.cov"><code class="docutils literal notranslate"><span class="pre">cov()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivy.functional.ivy.linear_algebra.cross"><code class="docutils literal notranslate"><span class="pre">cross()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivy.functional.ivy.linear_algebra.det"><code class="docutils literal notranslate"><span class="pre">det()</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ivy.functional.ivy.linear_algebra.diag"><code class="docutils literal notranslate"><span class="pre">diag()</span></code></a></li>
