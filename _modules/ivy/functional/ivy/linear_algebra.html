@@ -30,6 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/css/custom.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -41,6 +42,7 @@
     <script src="../../../../_static/sphinx_highlight.js"></script>
     <script src="../../../../_static/clipboard.min.js"></script>
     <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/design-tabs.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/ivy/functional/ivy/linear_algebra';</script>
     <link rel="icon" href="https://github.com/unifyai/unifyai.github.io/blob/master/img/externally_linked/ivy_logo_only.png?raw=true"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -198,10 +200,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </nav>
@@ -312,8 +310,8 @@ document.write(`
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data classes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../../../docs/data_classes/ivy.data_classes.array.html">Array</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../docs/data_classes/ivy.data_classes.container.html">Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/data_classes/ivy.data_classes.array.html">ivy.data_classes.array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/data_classes/ivy.data_classes.container.html">ivy.data_classes.container</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Framework classes</span></p>
 <ul class="nav bd-sidenav">
@@ -363,47 +361,47 @@ document.write(`
         </p>
         <ul class="nav bd-sidenav">
             <li class="toctree-l1">
-                <a class="reference external" href="/ivy">
+                <a class="reference external" href="/docs/ivy">
                     Ivy
                 </a>
             </li>
             <li class="toctree-l1">
-                <a class="reference external" href="/mech">
+                <a class="reference external" href="/docs/mech">
                     Ivy mech
                 </a>
             </li>
             <li class="toctree-l1">
-                <a class="reference external" href="/vision">
+                <a class="reference external" href="/docs/vision">
                     Ivy vision
                 </a>
             </li>
             <li class="toctree-l1">
-                <a class="reference external" href="/robot">
+                <a class="reference external" href="/docs/robot">
                     Ivy robot
                 </a>
             </li>
             <li class="toctree-l1">
-                <a class="reference external" href="/gym">
+                <a class="reference external" href="/docs/gym">
                     Ivy gym
                 </a>
             </li>
             <li class="toctree-l1">
-                <a class="reference external" href="/memory">
+                <a class="reference external" href="/docs/memory">
                     Ivy memory
                 </a>
             </li>
             <li class="toctree-l1">
-                <a class="reference external" href="/builder">
+                <a class="reference external" href="/docs/builder">
                     Ivy builder
                 </a>
             </li>
             <li class="toctree-l1">
-                <a class="reference external" href="/models">
+                <a class="reference external" href="/docs/models">
                     Ivy models
                 </a>
             </li>
             <li class="toctree-l1">
-                <a class="reference external" href="/ecosystem">
+                <a class="reference external" href="/docs/ecosystem">
                     Ivy ecosystem
                 </a>
             </li>
@@ -624,151 +622,6 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">current_backend</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">cholesky</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="n">upper</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="cov"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.linear_algebra.html#ivy.functional.ivy.linear_algebra.cov">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
-<span class="nd">@handle_out_argument</span>
-<span class="nd">@handle_nestable</span>
-<span class="nd">@handle_exceptions</span>
-<span class="nd">@handle_array_like_without_promotion</span>
-<span class="k">def</span> <span class="nf">cov</span><span class="p">(</span>
-    <span class="n">x1</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">],</span>
-    <span class="n">x2</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeArray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">/</span><span class="p">,</span>
-    <span class="o">*</span><span class="p">,</span>
-    <span class="n">rowVar</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">bias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">ddof</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">fweights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">aweights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">dtype</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">ivy</span><span class="o">.</span><span class="n">Dtype</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">NativeDtype</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ivy</span><span class="o">.</span><span class="n">Array</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Computes the covariance of matrix x1, or variables x1 and x2.</span>
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    x1</span>
-<span class="sd">        a 1D or 2D input array, with a numeric data type.</span>
-<span class="sd">    x2</span>
-<span class="sd">        optional second 1D or 2D input array, with a numeric data type.</span>
-<span class="sd">        Must have the same shape as ``self``.</span>
-<span class="sd">    rowVar</span>
-<span class="sd">        optional variable where each row of input is interpreted as a variable</span>
-<span class="sd">        (default = True). If set to False, each column is instead interpreted</span>
-<span class="sd">        as a variable.</span>
-<span class="sd">    bias</span>
-<span class="sd">        optional variable for normalizing input (default = False) by (N - 1) where</span>
-<span class="sd">        N is the number of given observations. If set to True, then normalization</span>
-<span class="sd">        is instead by N. Can be overridden by keyword ``ddof``.</span>
-<span class="sd">    ddof</span>
-<span class="sd">        optional variable to override ``bias`` (default = None). ddof=1 will return</span>
-<span class="sd">        the unbiased estimate, even with fweights and aweights given. ddof=0 will</span>
-<span class="sd">        return the simple average.</span>
-<span class="sd">    fweights</span>
-<span class="sd">        optional 1D array of integer frequency weights; the number of times each</span>
-<span class="sd">        observation vector should be repeated.</span>
-<span class="sd">    aweights</span>
-<span class="sd">        optional 1D array of observation vector weights. These relative weights are</span>
-<span class="sd">        typically large for observations considered &quot;important&quot; and smaller for</span>
-<span class="sd">        observations considered less &quot;important&quot;. If ddof=0 is specified, the array</span>
-<span class="sd">        of weights can be used to assign probabilities to observation vectors.</span>
-<span class="sd">    dtype</span>
-<span class="sd">        optional variable to set data-type of the result. By default, data-type</span>
-<span class="sd">        will have at least ``numpy.float64`` precision.</span>
-<span class="sd">    out</span>
-<span class="sd">        optional output array, for writing the result to. It must have a shape that</span>
-<span class="sd">        the inputs broadcast to.</span>
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    ret</span>
-<span class="sd">        an array containing the covariance matrix of an input matrix, or the</span>
-<span class="sd">        covariance matrix of two variables. The returned array must have a</span>
-<span class="sd">        floating-point data type determined by Type Promotion Rules and must be</span>
-<span class="sd">        a square matrix of shape (N, N), where N is the number of variables in the</span>
-<span class="sd">        input(s).</span>
-<span class="sd">    This function conforms to the `Array API Standard</span>
-<span class="sd">    &lt;https://data-apis.org/array-api/latest/&gt;`_. This docstring is an extension of the</span>
-<span class="sd">    `docstring &lt;https://data-apis.org/array-api/latest/extensions/generated/signatures.linalg.cov.html&gt;`_ # noqa</span>
-<span class="sd">    in the standard.</span>
-<span class="sd">    Both the description and the type hints above assumes an array input for simplicity,</span>
-<span class="sd">    but this function is *nestable*, and therefore also accepts :class:`ivy.Container`</span>
-<span class="sd">    instances in place of any of the arguments.</span>
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    With :class:`ivy.Array` input:</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.array([[1,2,3],</span>
-<span class="sd">    ...                [4,5,6]])</span>
-<span class="sd">    &gt;&gt;&gt; y = x.cov()</span>
-<span class="sd">    &gt;&gt;&gt; print(y)</span>
-<span class="sd">    ivy.array([[ 1.,  1.  ],</span>
-<span class="sd">    ...        [ 1.,  1.  ]]</span>
-<span class="sd">    With :class:`ivy.Container` inputs:</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.Container(a=ivy.array([1., 2., 3.]), b=ivy.array([1., 2., 3.]))</span>
-<span class="sd">    &gt;&gt;&gt; y = ivy.Container(a=ivy.array([3., 2., 1.]), b=ivy.array([3., 2., 1.]))</span>
-<span class="sd">    &gt;&gt;&gt; z = ivy.Container.static_cov(x, y)</span>
-<span class="sd">    &gt;&gt;&gt; print(z)</span>
-<span class="sd">    {</span>
-<span class="sd">        a: ivy.array([ 1., -1., -1., -1.]</span>
-<span class="sd">                     [ 1.,  1., -1., -1.]),</span>
-<span class="sd">        b: ivy.array([-1., -1.,  1.,  1.]</span>
-<span class="sd">                     [-1.,  1.,  1.,  1.])</span>
-<span class="sd">    }</span>
-<span class="sd">    With a combination of :class:`ivy.Array` and :class:`ivy.Container` inputs:</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.array([1., 2., 3.])</span>
-<span class="sd">    &gt;&gt;&gt; y = ivy.Container(a=ivy.array([3. ,2. ,1.]), b=ivy.array([-1., -2., -3.]))</span>
-<span class="sd">    &gt;&gt;&gt; z = ivy.cov(x, y)</span>
-<span class="sd">    &gt;&gt;&gt; print(z)</span>
-<span class="sd">    {</span>
-<span class="sd">        a: ivy.array([ 1., -1.]</span>
-<span class="sd">                     [-1.,  1.]),</span>
-<span class="sd">        b: ivy.array([ 1., -1.]</span>
-<span class="sd">                     [-1.,  1.])</span>
-<span class="sd">    }</span>
-<span class="sd">    With :class:`ivy.Array` input and rowVar flag set to False (True by default):</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.array([[1,2,3],</span>
-<span class="sd">    ...                [4,5,6]])</span>
-<span class="sd">    &gt;&gt;&gt; y = x.cov(rowVar=False)</span>
-<span class="sd">    &gt;&gt;&gt; print(y)</span>
-<span class="sd">    ivy.array([[ 4.5,  4.5, 4.5 ],</span>
-<span class="sd">    ...        [ 4.5,  4.5, 4.5 ],</span>
-<span class="sd">    ...        [ 4.5,  4.5, 4.5 ]])</span>
-<span class="sd">    With :class:`ivy.Array` input and bias flag set to True (False by default):</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.array([[1,2,3],</span>
-<span class="sd">    ...                [4,5,6]])</span>
-<span class="sd">    &gt;&gt;&gt; y = x.cov(bias=True)</span>
-<span class="sd">    &gt;&gt;&gt; print(y)</span>
-<span class="sd">    ivy.array([[ 0.6667,  0.6667  ],</span>
-<span class="sd">    ...        [ 0.6667,  0.6667  ]]</span>
-<span class="sd">    With :class:`ivy.Array` input with both fweights and aweights given:</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.array([[1,2,3],</span>
-<span class="sd">    ...                [4,5,6]])</span>
-<span class="sd">    &gt;&gt;&gt; fw = ivy.array([1,2,3])</span>
-<span class="sd">    &gt;&gt;&gt; aw = ivy.array([ 1.2, 2.3, 3.4 ])</span>
-<span class="sd">    &gt;&gt;&gt; y = x.cov(fweights=fw, aweights=aw)</span>
-<span class="sd">    &gt;&gt;&gt; print(y)</span>
-<span class="sd">    ivy.array([[ 0.48447205,  0.48447205  ],</span>
-<span class="sd">    ...        [ 0.48447205,  0.48447205  ]]</span>
-<span class="sd">    With :class:`ivy.Array` input with both fweights and aweights given,</span>
-<span class="sd">    and rowVar set to False:</span>
-<span class="sd">    &gt;&gt;&gt; x = ivy.array([[1,2,3],</span>
-<span class="sd">    ...                [4,5,6]])</span>
-<span class="sd">    &gt;&gt;&gt; fw = ivy.array([1,3])</span>
-<span class="sd">    &gt;&gt;&gt; aw = ivy.array([ 1.5, 4 ])</span>
-<span class="sd">    &gt;&gt;&gt; y = x.cov(fweights=fw, aweights=aw, rowVar=False)</span>
-<span class="sd">    &gt;&gt;&gt; print(y)</span>
-<span class="sd">    ivy.array([[ 1.22727273,  1.22727273, 1.22727273 ],</span>
-<span class="sd">    ...        [ 1.22727273,  1.22727273, 1.22727273 ],</span>
-<span class="sd">    ...        [ 1.22727273,  1.22727273, 1.22727273 ]])</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">current_backend</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span>
-        <span class="n">x1</span><span class="p">,</span>
-        <span class="n">x2</span><span class="p">,</span>
-        <span class="n">rowVar</span><span class="o">=</span><span class="n">rowVar</span><span class="p">,</span>
-        <span class="n">bias</span><span class="o">=</span><span class="n">bias</span><span class="p">,</span>
-        <span class="n">ddof</span><span class="o">=</span><span class="n">ddof</span><span class="p">,</span>
-        <span class="n">fweights</span><span class="o">=</span><span class="n">fweights</span><span class="p">,</span>
-        <span class="n">aweights</span><span class="o">=</span><span class="n">aweights</span><span class="p">,</span>
-        <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
-    <span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="cross"><a class="viewcode-back" href="../../../../docs/functional/ivy/ivy.functional.ivy.linear_algebra.html#ivy.functional.ivy.linear_algebra.cross">[docs]</a><span class="nd">@to_native_arrays_and_back</span>
@@ -3355,16 +3208,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item"><nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-
-</div></div>
               
             
           </div>
